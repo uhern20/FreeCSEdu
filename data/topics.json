@@ -1,42 +1,70 @@
 [
     {
-    "title": "C++ Basics",
+    "title": "C++ Basics: Data Types, Fundamental Objects, and Functions",
     "category": "basics",
-    "description": "The basics of C++. The when, how, why, and what of C++.",
-    "details": "C++ is an Object-Oriented Programming language designed by Bjarne Stroustrup in 1985. Developed as an extension of another programming language C, hence why the '++' was added into the name of the language. C++ in the modern world is used in various fields of technology which includes things such as: game development, database systems, game graphics, and many more. Here I will provide you various resources of my own such as some minor projects to work on yourself and other external resources that are extremely valuable to you learning this language.",
+    "description": "Learn the fundamental building blocks of C++: data types, input/output, and basic function structure.",
+    "details": "This section introduces you to the essential components of C++ programming. You'll learn about basic data types like int, float, double, char, and bool that store different kinds of information. We'll cover how to use cin to get user input and cout to display output. You'll also learn the basic structure of functions - how to write them, what they look like, and why they're useful. These are the building blocks you need to start writing C++ programs.",
     "examples": [
-        "Basic syntax and structure",
-        "Variables and data types (int, float, char, bool)",
-        "Control structures (if/else, loops)",
-        "Functions and function overloading",
-        "Classes and objects",
-        "Pointers and memory management"
+        "Basic data types: int, float, double, char, bool",
+        "Using cout to display output",
+        "Using cin to get user input",
+        "Variable declaration and initialization",
+        "Basic function structure and syntax",
+        "Simple arithmetic operations"
     ],
     "videoUrl": "",
     "resources": [
-        { "title": "Learn C++ - Official Documentation", "url": "https://cplusplus.com/doc/tutorial/", "icon": "📚" },
-        { "title": "C++ Reference", "url": "https://en.cppreference.com/", "icon": "📖" },
-        { "title": "The Cherno C++ Series", "url": "https://www.youtube.com/watch?v=18c3MTX0PK0&list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb", "icon": "🎥" },
-        { "title": "LearnCpp.com Tutorial", "url": "https://www.learncpp.com/", "icon": "🎓" }
+        { "title": "C++ Data Types Reference", "url": "https://en.cppreference.com/w/cpp/language/types", "icon": "📚" },
+        { "title": "Functions in C++", "url": "https://www.learncpp.com/cpp-tutorial/introduction-to-functions/", "icon": "📖" },
+        { "title": "C++ Variables and Types", "url": "https://cplusplus.com/doc/tutorial/variables/", "icon": "🎓" },
+        { "title": "The Cherno - Variables in C++", "url": "https://www.youtube.com/watch?v=zB9RI8_wExo", "icon": "🎥" }
     ],
     "codeExamples": [
         {
-            "title": "Hello World Program",
-            "code": "#include <iostream>\n\nint main() {\n    std::cout << \"Hello, World!\" << std::endl;\n    return 0;\n}"
+            "title": "Hello World & Basic Output",
+            "code": "#include <iostream>\n\nint main() {\n    std::cout << \"Hello, World!\" << std::endl;\n    std::cout << \"Welcome to C++!\" << std::endl;\n    return 0;\n}"
         },
         {
-            "title": "Variables and Data Types",
-            "code": "#include <iostream>\n\nint main() {\n    int age = 25;\n    double price = 19.99;\n    char grade = 'A';\n    bool isPassed = true;\n    \n    std::cout << \"Age: \" << age << std::endl;\n    std::cout << \"Price: $\" << price << std::endl;\n    return 0;\n}"
+            "title": "Basic Data Types",
+            "code": "#include <iostream>\n\nint main() {\n    int age = 25;              // whole numbers\n    float price = 19.99;       // decimal numbers\n    double pi = 3.14159;       // more precise decimals\n    char grade = 'A';          // single character\n    bool isPassed = true;      // true or false\n    \n    std::cout << \"Age: \" << age << std::endl;\n    std::cout << \"Price: $\" << price << std::endl;\n    std::cout << \"Grade: \" << grade << std::endl;\n    return 0;\n}"
         },
         {
-            "title": "Simple Function",
-            "code": "#include <iostream>\n\nint add(int a, int b) {\n    return a + b;\n}\n\nint main() {\n    int result = add(5, 3);\n    std::cout << \"5 + 3 = \" << result << std::endl;\n    return 0;\n}"
+            "title": "Using cin for Input",
+            "code": "#include <iostream>\n\nint main() {\n    int age;\n    std::string name;\n    \n    std::cout << \"Enter your name: \";\n    std::cin >> name;\n    \n    std::cout << \"Enter your age: \";\n    std::cin >> age;\n    \n    std::cout << \"Hello \" << name << \", you are \" << age << \" years old!\" << std::endl;\n    return 0;\n}"
         },
         {
-            "title": "Basic Class Example",
-            "code": "#include <iostream>\n#include <string>\n\nclass Student {\npublic:\n    std::string name;\n    int age;\n    \n    void introduce() {\n        std::cout << \"Hi, I'm \" << name << \" and I'm \" << age << \" years old.\" << std::endl;\n    }\n};\n\nint main() {\n    Student student1;\n    student1.name = \"Alice\";\n    student1.age = 20;\n    student1.introduce();\n    return 0;\n}"
+            "title": "Basic Function Structure",
+            "code": "#include <iostream>\n\n// A simple function that adds two numbers\nint add(int a, int b) {\n    return a + b;\n}\n\n// A function that prints a greeting\nvoid greet() {\n    std::cout << \"Hello from a function!\" << std::endl;\n}\n\nint main() {\n    greet();  // calling the greet function\n    \n    int sum = add(5, 3);  // calling the add function\n    std::cout << \"5 + 3 = \" << sum << std::endl;\n    \n    return 0;\n}"
         }
     ],
+    "quiz": [
+        {
+            "question": "Which data type would you use to store a whole number like 42?",
+            "options": ["float", "int", "char", "bool"],
+            "correct": 1
+        },
+        {
+            "question": "What does 'cout' do in C++?",
+            "options": ["Gets input from user", "Outputs/displays text", "Declares a variable", "Ends the program"],
+            "correct": 1
+        },
+        {
+            "question": "What does 'cin' do in C++?",
+            "options": ["Outputs text", "Gets input from the user", "Starts the program", "Creates a function"],
+            "correct": 1
+        },
+        {
+            "question": "What does 'int' stand for in C++?",
+            "options": ["Internet", "Integer (whole number)", "Internal", "Interval"],
+            "correct": 1
+        }
+    ]
+},{
+    "title": "C++ Basic History",
+    "category": "basics",
+    "description": "The History of C++. The when, how, why, and what of C++.",
+    "details": "C++ is an Object-Oriented Programming language designed by Bjarne Stroustrup in 1985. Developed as an extension of another programming language C, hence why the '++' was added into the name of the language. C++ in the modern world is used in various fields of technology which includes things such as: game development, database systems, game graphics, and many more. Here I will provide you various resources of my own such as some minor projects to work on yourself and other external resources that are extremely valuable to you learning this language.",
+    "videoUrl": "",
     "quiz": [
         {
             "question": "Who created the C++ programming language?",
@@ -47,12 +75,6 @@
             "question": "What does the '++' in C++ represent?",
             "options": ["Addition operator", "Increment operator", "Multiplication", "Concatenation"],
             "correct": 1
-        },
-        
-        {
-            "question": "What is the correct way to declare an integer variable in C++?",
-            "options": ["int x = 5;", "integer x = 5;", "var x = 5;", "x: int = 5;"],
-            "correct": 0
         }
     ]
 },{

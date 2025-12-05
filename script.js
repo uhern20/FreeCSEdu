@@ -74,6 +74,9 @@ function showDetailPage(title) {
     currentTopic = topics.find(t => t.title === title);
     if (!currentTopic) return;
 
+    // Add to browser history
+    history.pushState({ page: 'detail', title: title }, '', `#${encodeURIComponent(title)}`);
+
     document.getElementById('homePage').style.display = 'none';
     document.getElementById('detailPage').classList.add('active');
 
@@ -82,16 +85,16 @@ function showDetailPage(title) {
     document.getElementById('detailOverview').textContent = currentTopic.description;
     document.getElementById('detailExplanation').textContent = currentTopic.details;
 
-    // Handle video
     // Handle video - only show if videoUrl exists and is not empty
-const videoSection = document.getElementById('videoContainer').parentElement;
-if (currentTopic.videoUrl && currentTopic.videoUrl.trim() !== '') {
-    videoSection.style.display = 'block';
-    const videoContainer = document.getElementById('videoContainer');
-    videoContainer.innerHTML = `<iframe src="${currentTopic.videoUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-} else {
-    videoSection.style.display = 'none';
-}
+    const videoSection = document.getElementById('videoContainer').parentElement;
+    if (currentTopic.videoUrl && currentTopic.videoUrl.trim() !== '') {
+        videoSection.style.display = 'block';
+        const videoContainer = document.getElementById('videoContainer');
+        videoContainer.innerHTML = `<iframe src="${currentTopic.videoUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+    } else {
+        videoSection.style.display = 'none';
+    }
+
     const examplesList = document.getElementById('detailExamples');
     examplesList.innerHTML = currentTopic.examples.map(ex => `<li>${ex}</li>`).join('');
 
@@ -112,6 +115,11 @@ if (currentTopic.videoUrl && currentTopic.videoUrl.trim() !== '') {
 }
 
 function showHomePage() {
+    // Add to browser history if not already on home
+    if (window.location.hash) {
+        history.pushState({ page: 'home' }, '', window.location.pathname);
+    }
+
     document.getElementById('homePage').style.display = 'block';
     document.getElementById('detailPage').classList.remove('active');
     window.scrollTo(0, 0);
@@ -197,6 +205,32 @@ function loadTheme() {
     document.documentElement.setAttribute('data-theme', savedTheme);
     updateThemeButton(savedTheme);
 }
+
+// Handle browser back/forward buttons
+window.addEventListener('popstate', function(event) {
+    if (event.state && event.state.page === 'detail') {
+        // Going back to a detail page
+        const title = event.state.title;
+        const topic = topics.find(t => t.title === title);
+        if (topic) {
+            showDetailPage(title);
+        }
+    } else {
+        // Going back to home page
+        showHomePage();
+    }
+});
+
+// Handle page load with hash (direct links)
+window.addEventListener('load', function() {
+    if (window.location.hash) {
+        const title = decodeURIComponent(window.location.hash.substring(1));
+        const topic = topics.find(t => t.title === title);
+        if (topic) {
+            showDetailPage(title);
+        }
+    }
+});
 
 // Start the app
 loadTopics();
