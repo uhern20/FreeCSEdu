@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS Learning Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1 onclick="showHomePage()">CS Learning Hub</h1>
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <span id="themeIcon">🌙</span>
+                <span id="themeText">Dark Mode</span>
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Home Page -->
+        <div id="homePage">
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search for CS topics..." oninput="filterTopics()">
+            </div>
+
+            <div class="categories" id="categories"></div>
+
+            <div class="topics-grid" id="topicsGrid"></div>
+        </div>
+
+        <!-- Detail Page -->
+        <div id="detailPage" class="detail-page">
+            <button class="back-button" onclick="showHomePage()" style="display: flex;">
+                ← Back to Topics
+            </button>
+
+            <div class="detail-header">
+                <h1 class="detail-title" id="detailTitle"></h1>
+                <div class="detail-category" id="detailCategory"></div>
+            </div>
+
+            <div class="content-section">
+                <h2>📚 Overview</h2>
+                <p id="detailOverview"></p>
+            </div>
+
+            <div class="content-section">
+                <h2>🎥 Video Tutorial</h2>
+                <div class="video-container" id="videoContainer">
+                    <div class="video-placeholder">
+                        <p>📹 Video content will be embedded here</p>
+                        <small>You can add YouTube embeds, Vimeo, or custom videos</small>
+                    </div>
+                </div>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 1rem;">
+                    To add a video, include a videoUrl in your topic data.
+                </p>
+            </div>
+
+            <div class="content-section">
+                <h2>📖 Detailed Explanation</h2>
+                <div id="detailExplanation"></div>
+            </div>
+
+            <div class="content-section">
+                <h2>💡 Examples & Use Cases</h2>
+                <ul id="detailExamples" style="list-style-position: inside; color: var(--text-secondary);"></ul>
+            </div>
+
+            <div class="content-section">
+                <h2>🔗 External Resources</h2>
+                <ul class="resource-list" id="resourceList"></ul>
+            </div>
+
+            <div class="content-section">
+                <h2>✏️ Practice Questions</h2>
+                <div id="quizContainer"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

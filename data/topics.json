@@ -1,0 +1,136 @@
+[
+    {
+    "title": "C++ Basics",
+    "category": "basics",
+    "description": "The basics of C++. The when, how, why, and what of C++.",
+    "details": "C++ is an Object-Oriented Programming language designed by Bjarne Stroustrup in 1985. Developed as an extension of another programming language C, hence why the '++' was added into the name of the language. C++ in the modern world is used in various fields of technology which includes things such as: game development, database systems, game graphics, and many more. Here I will provide you various resources of my own such as some minor projects to work on yourself and other external resources that are extremely valuable to you learning this language.",
+    "examples": [
+        "Basic syntax and structure",
+        "Variables and data types (int, float, char, bool)",
+        "Control structures (if/else, loops)",
+        "Functions and function overloading",
+        "Classes and objects",
+        "Pointers and memory management"
+    ],
+    "videoUrl": "",
+    "resources": [
+        { "title": "Learn C++ - Official Documentation", "url": "https://cplusplus.com/doc/tutorial/", "icon": "📚" },
+        { "title": "C++ Reference", "url": "https://en.cppreference.com/", "icon": "📖" },
+        { "title": "The Cherno C++ Series", "url": "https://www.youtube.com/watch?v=18c3MTX0PK0&list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb", "icon": "🎥" },
+        { "title": "LearnCpp.com Tutorial", "url": "https://www.learncpp.com/", "icon": "🎓" }
+    ],
+    "codeExamples": [
+        {
+            "title": "Hello World Program",
+            "code": "#include <iostream>\n\nint main() {\n    std::cout << \"Hello, World!\" << std::endl;\n    return 0;\n}"
+        },
+        {
+            "title": "Variables and Data Types",
+            "code": "#include <iostream>\n\nint main() {\n    int age = 25;\n    double price = 19.99;\n    char grade = 'A';\n    bool isPassed = true;\n    \n    std::cout << \"Age: \" << age << std::endl;\n    std::cout << \"Price: $\" << price << std::endl;\n    return 0;\n}"
+        },
+        {
+            "title": "Simple Function",
+            "code": "#include <iostream>\n\nint add(int a, int b) {\n    return a + b;\n}\n\nint main() {\n    int result = add(5, 3);\n    std::cout << \"5 + 3 = \" << result << std::endl;\n    return 0;\n}"
+        },
+        {
+            "title": "Basic Class Example",
+            "code": "#include <iostream>\n#include <string>\n\nclass Student {\npublic:\n    std::string name;\n    int age;\n    \n    void introduce() {\n        std::cout << \"Hi, I'm \" << name << \" and I'm \" << age << \" years old.\" << std::endl;\n    }\n};\n\nint main() {\n    Student student1;\n    student1.name = \"Alice\";\n    student1.age = 20;\n    student1.introduce();\n    return 0;\n}"
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Who created the C++ programming language?",
+            "options": ["Dennis Ritchie", "Bjarne Stroustrup", "Guido van Rossum", "James Gosling"],
+            "correct": 1
+        },
+        {
+            "question": "What does the '++' in C++ represent?",
+            "options": ["Addition operator", "Increment operator", "Multiplication", "Concatenation"],
+            "correct": 1
+        },
+        
+        {
+            "question": "What is the correct way to declare an integer variable in C++?",
+            "options": ["int x = 5;", "integer x = 5;", "var x = 5;", "x: int = 5;"],
+            "correct": 0
+        }
+    ]
+},{
+        "title": "Big O Notation",
+        "category": "algorithms",
+        "description": "A mathematical notation used to describe the performance or complexity of an algorithm.",
+        "details": "Big O notation specifically describes the worst-case scenario and can be used to describe the execution time required or the space used by an algorithm. It helps developers understand how an algorithm's performance scales with input size.",
+        "examples": [
+            "O(1) - Constant time",
+            "O(n) - Linear time",
+            "O(n²) - Quadratic time",
+            "O(log n) - Logarithmic time"
+        ],
+        "videoUrl": "",
+        "resources": [
+            { "title": "Big O Cheat Sheet", "url": "https://www.bigocheatsheet.com/", "icon": "📊" },
+            { "title": "Khan Academy - Algorithms", "url": "https://www.khanacademy.org/computing/computer-science/algorithms", "icon": "🎓" },
+            { "title": "Visualgo - Algorithm Visualizations", "url": "https://visualgo.net/en", "icon": "👁️" }
+        ],
+        "quiz": [
+            {
+                "question": "What is the time complexity of accessing an element in an array by index?",
+                "options": ["O(1)", "O(n)", "O(log n)", "O(n²)"],
+                "correct": 0
+            },
+            {
+                "question": "Which time complexity represents a binary search algorithm?",
+                "options": ["O(n)", "O(log n)", "O(n log n)", "O(n²)"],
+                "correct": 1
+            }
+        ]
+    },
+    {
+        "title": "Recursion",
+        "category": "programming",
+        "description": "A programming technique where a function calls itself to solve a problem.",
+        "details": "Recursion breaks down complex problems into simpler, similar subproblems. Every recursive function needs a base case to prevent infinite recursion and a recursive case that moves toward the base case.",
+        "examples": [
+            "Factorial calculation",
+            "Fibonacci sequence",
+            "Tree traversal",
+            "Divide and conquer algorithms"
+        ],
+        "videoUrl": "",
+        "resources": [
+            { "title": "Recursion Explained", "url": "https://www.geeksforgeeks.org/recursion/", "icon": "📘" },
+            { "title": "Visualizing Recursion", "url": "https://recursion.vercel.app/", "icon": "👁️" }
+        ],
+        "quiz": [
+            {
+                "question": "What is the essential component every recursive function must have?",
+                "options": ["A loop", "A base case", "Multiple parameters", "Global variables"],
+                "correct": 1
+            }
+        ]
+    },
+    {
+        "title": "Binary Search Tree",
+        "category": "data structures",
+        "description": "A tree data structure where each node has at most two children, with left child smaller and right child larger.",
+        "details": "BSTs provide efficient searching, insertion, and deletion operations. In a balanced BST, operations have O(log n) time complexity, making them much faster than linear search for large datasets.",
+        "examples": [
+            "Search operations in O(log n)",
+            "In-order traversal gives sorted output",
+            "Used in database indexing",
+            "Self-balancing variants: AVL, Red-Black trees"
+        ],
+        "videoUrl": "",
+        "resources": [
+            { "title": "BST Visualization", "url": "https://www.cs.usfca.edu/~galles/visualization/BST.html", "icon": "🌳" },
+            { "title": "GeeksforGeeks BST", "url": "https://www.geeksforgeeks.org/binary-search-tree-data-structure/", "icon": "📚" }
+        ],
+        "quiz": [
+            {
+                "question": "In a Binary Search Tree, where are values smaller than the root stored?",
+                "options": ["Right subtree", "Left subtree", "Parent node", "Leaf nodes only"],
+                "correct": 1
+            }
+        ]
+    }
+]
