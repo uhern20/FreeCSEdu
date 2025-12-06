@@ -9,13 +9,123 @@
 <body>
     <header>
         <div class="header-content">
-            <h1 onclick="showHomePage()">CS Edu For Free</h1>
-            <button class="theme-toggle" onclick="toggleTheme()">
-                <span id="themeIcon">🌙</span>
-                <span id="themeText">Dark Mode</span>
-            </button>
+            <h1 onclick="showHomePage()">CS Learning Hub</h1>
+            <div class="header-controls">
+                <div class="language-selector">
+                    <button class="language-btn" onclick="toggleLanguageDropdown()">
+                        <span id="currentLanguage">🌐 EN</span>
+                        <span class="arrow">▼</span>
+                    </button>
+                    <div class="language-dropdown" id="languageDropdown">
+                        <div class="language-option" onclick="changeLanguage('en', '🌐 EN')">
+                            <span class="flag">🇺🇸</span>
+                            <span>English</span>
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('es', '🌐 ES')">
+                            <span class="flag">🇪🇸</span>
+                            <span>Español</span>
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('fr', '🌐 FR')">
+                            <span class="flag">🇫🇷</span>
+                            <span>Français</span>
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('de', '🌐 DE')">
+                            <span class="flag">🇩🇪</span>
+                            <span>Deutsch</span>
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('zh-CN', '🌐 ZH')">
+                            <span class="flag">🇨🇳</span>
+                            <span>中文</span>
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('ja', '🌐 JA')">
+                            <span class="flag">🇯🇵</span>
+                            <span>日本語</span>
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('ko', '🌐 KO')">
+                            <span class="flag">🇰🇷</span>
+                            <span>한국어</span>
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('ar', '🌐 AR')">
+                            <span class="flag">🇸🇦</span>
+                            <span>العربية</span>
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('hi', '🌐 HI')">
+                            <span class="flag">🇮🇳</span>
+                            <span>हिन्दी</span>
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('pt', '🌐 PT')">
+                            <span class="flag">🇧🇷</span>
+                            <span>Português</span>
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('ru', '🌐 RU')">
+                            <span class="flag">🇷🇺</span>
+                            <span>Русский</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <span id="themeIcon">🌙</span>
+                    <span id="themeText">Dark Mode</span>
+                </button>
+            </div>
         </div>
     </header>
+    <!-- Accessibility Panel -->
+<button class="accessibility-toggle" onclick="toggleAccessibilityPanel()" aria-label="Accessibility Options">
+    ⚙️
+</button>
+
+<div class="accessibility-panel" id="accessibilityPanel">
+    <div class="accessibility-header">
+        <h3>Accessibility Options</h3>
+        <button class="close-panel" onclick="toggleAccessibilityPanel()">✕</button>
+    </div>
+    
+    <div class="accessibility-content">
+        <div class="accessibility-option">
+            <label>Font Size</label>
+            <div class="font-size-controls">
+                <button onclick="changeFontSize('small')" class="font-btn" data-size="small">A</button>
+                <button onclick="changeFontSize('medium')" class="font-btn active" data-size="medium">A</button>
+                <button onclick="changeFontSize('large')" class="font-btn" data-size="large">A</button>
+                <button onclick="changeFontSize('xlarge')" class="font-btn" data-size="xlarge">A</button>
+                <button onclick="changeFontSize('xxlarge')" class="font-btn" data-size="xxlarge">A</button>
+            </div>
+        </div>
+
+        <div class="accessibility-option">
+            <label for="highContrast">
+                <input type="checkbox" id="highContrast" onchange="toggleHighContrast()">
+                High Contrast Mode
+            </label>
+        </div>
+
+        <div class="accessibility-option">
+            <label for="dyslexiaFont">
+                <input type="checkbox" id="dyslexiaFont" onchange="toggleDyslexiaFont()">
+                Dyslexia-Friendly Font
+            </label>
+        </div>
+
+        <div class="accessibility-option">
+            <label for="reducedMotion">
+                <input type="checkbox" id="reducedMotion" onchange="toggleReducedMotion()">
+                Reduce Motion
+            </label>
+        </div>
+
+        <div class="accessibility-option">
+            <label for="focusHighlight">
+                <input type="checkbox" id="focusHighlight" onchange="toggleFocusHighlight()">
+                Enhanced Focus Indicators
+            </label>
+        </div>
+
+        <div class="accessibility-option">
+            <button onclick="resetAccessibility()" class="reset-btn">Reset All Settings</button>
+        </div>
+    </div>
+</div>
 
     <div class="container">
         <!-- Home Page -->
@@ -45,7 +155,7 @@
                 <p id="detailOverview"></p>
             </div>
 
-            <div class="content-section">
+            <div class="content-section" id="videoSection">
                 <h2>🎥 Video Tutorial</h2>
                 <div class="video-container" id="videoContainer">
                     <div class="video-placeholder">
@@ -79,6 +189,20 @@
             </div>
         </div>
     </div>
+
+    <!-- Hidden Google Translate -->
+    <div id="google_translate_element" style="display: none;"></div>
+
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'es,fr,de,zh-CN,ja,ko,ar,hi,pt,ru',
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
     <script src="script.js"></script>
 </body>

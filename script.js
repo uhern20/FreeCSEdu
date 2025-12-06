@@ -2,6 +2,7 @@ let topics = [];
 let currentFilter = 'all';
 let currentSearch = '';
 let currentTopic = null;
+let currentLanguage = 'en';
 
 // Load topics from JSON file
 async function loadTopics() {
@@ -20,6 +21,7 @@ function init() {
     renderCategories();
     renderTopics();
     loadTheme();
+    loadAccessibilitySettings();
 }
 
 function renderCategories() {
@@ -86,7 +88,7 @@ function showDetailPage(title) {
     document.getElementById('detailExplanation').textContent = currentTopic.details;
 
     // Handle video - only show if videoUrl exists and is not empty
-    const videoSection = document.getElementById('videoContainer').parentElement;
+    const videoSection = document.getElementById('videoSection');
     if (currentTopic.videoUrl && currentTopic.videoUrl.trim() !== '') {
         videoSection.style.display = 'block';
         const videoContainer = document.getElementById('videoContainer');
@@ -206,17 +208,72 @@ function loadTheme() {
     updateThemeButton(savedTheme);
 }
 
+// Language selector functions
+function toggleLanguageDropdown() {
+    const dropdown = document.getElementById('languageDropdown');
+    const btn = document.querySelector('.language-btn');
+    dropdown.classList.toggle('show');
+    btn.classList.toggle('active');
+}
+
+function changeLanguage(langCode, displayText) {
+    currentLanguage = langCode;
+    document.getElementById('currentLanguage').textContent = displayText;
+    toggleLanguageDropdown();
+    
+    // Wait for Google Translate to load
+    const maxAttempts = 10;
+    let attempts = 0;
+    
+    const tryTranslate = setInterval(() => {
+        const select = document.querySelector('.goog-te-combo');
+        const iframe = document.querySelector('.goog-te-menu-frame');
+        
+        if (select || attempts >= maxAttempts) {
+            clearInterval(tryTranslate);
+            
+            if (select) {
+                // For English, need to actually click the restore button
+                if (langCode === 'en') {
+                    // Find and click the restore button
+                    const restoreButton = document.querySelector('.goog-te-menu-value span:first-child');
+                    if (restoreButton && document.body.classList.contains('translated-ltr')) {
+                        restoreButton.click();
+                    } else {
+                        // Already in English or not translated yet
+                        select.value = '';
+                        select.dispatchEvent(new Event('change'));
+                    }
+                } else {
+                    // Change to selected language
+                    select.value = langCode;
+                    select.dispatchEvent(new Event('change'));
+                }
+            }
+        }
+        attempts++;
+    }, 200);
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', function(event) {
+    const languageSelector = document.querySelector('.language-selector');
+    if (languageSelector && !languageSelector.contains(event.target)) {
+        document.getElementById('languageDropdown').classList.remove('show');
+        const btn = document.querySelector('.language-btn');
+        if (btn) btn.classList.remove('active');
+    }
+});
+
 // Handle browser back/forward buttons
 window.addEventListener('popstate', function(event) {
     if (event.state && event.state.page === 'detail') {
-        // Going back to a detail page
         const title = event.state.title;
         const topic = topics.find(t => t.title === title);
         if (topic) {
             showDetailPage(title);
         }
     } else {
-        // Going back to home page
         showHomePage();
     }
 });
@@ -230,6 +287,144 @@ window.addEventListener('load', function() {
             showDetailPage(title);
         }
     }
+});
+
+// Accessibility Functions
+let accessibilitySettings = {
+    fontSize: 'medium',
+    highContrast: false,
+    dyslexiaFont: false,
+    reducedMotion: false,
+    focusHighlight: false
+};
+
+function toggleAccessibilityPanel() {
+    const panel = document.getElementById('accessibilityPanel');
+    panel.classList.toggle('open');
+}
+
+function changeFontSize(size) {
+    // Remove all font size classes - ADD xxlarge here
+    document.body.classList.remove('font-small', 'font-medium', 'font-large', 'font-xlarge', 'font-xxlarge');
+    
+    // Add selected size
+    document.body.classList.add(`font-${size}`);
+    
+    // Update active button
+    document.querySelectorAll('.font-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.size === size) {
+            btn.classList.add('active');
+        }
+    });
+    
+    accessibilitySettings.fontSize = size;
+    saveAccessibilitySettings();
+}
+
+function toggleHighContrast() {
+    const isChecked = document.getElementById('highContrast').checked;
+    document.body.classList.toggle('high-contrast', isChecked);
+    accessibilitySettings.highContrast = isChecked;
+    saveAccessibilitySettings();
+}
+
+function toggleDyslexiaFont() {
+    const isChecked = document.getElementById('dyslexiaFont').checked;
+    document.body.classList.toggle('dyslexia-font', isChecked);
+    accessibilitySettings.dyslexiaFont = isChecked;
+    saveAccessibilitySettings();
+}
+
+function toggleReducedMotion() {
+    const isChecked = document.getElementById('reducedMotion').checked;
+    document.body.classList.toggle('reduced-motion', isChecked);
+    accessibilitySettings.reducedMotion = isChecked;
+    saveAccessibilitySettings();
+}
+
+function toggleFocusHighlight() {
+    const isChecked = document.getElementById('focusHighlight').checked;
+    document.body.classList.toggle('focus-highlight', isChecked);
+    accessibilitySettings.focusHighlight = isChecked;
+    saveAccessibilitySettings();
+}
+
+function resetAccessibility() {
+    accessibilitySettings = {
+        fontSize: 'medium',
+        highContrast: false,
+        dyslexiaFont: false,
+        reducedMotion: false,
+        focusHighlight: false
+    };
+    
+    // ADD xxlarge here too
+    document.body.classList.remove('font-small', 'font-large', 'font-xlarge', 'font-xxlarge', 'high-contrast', 'dyslexia-font', 'reduced-motion', 'focus-highlight');
+    document.body.classList.add('font-medium');
+    
+    document.getElementById('highContrast').checked = false;
+    document.getElementById('dyslexiaFont').checked = false;
+    document.getElementById('reducedMotion').checked = false;
+    document.getElementById('focusHighlight').checked = false;
+    
+    document.querySelectorAll('.font-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.size === 'medium') {
+            btn.classList.add('active');
+        }
+    });
+    
+    saveAccessibilitySettings();
+}
+
+function saveAccessibilitySettings() {
+    localStorage.setItem('accessibilitySettings', JSON.stringify(accessibilitySettings));
+}
+
+function loadAccessibilitySettings() {
+    const saved = localStorage.getItem('accessibilitySettings');
+    if (saved) {
+        accessibilitySettings = JSON.parse(saved);
+        
+        // Apply saved settings
+        changeFontSize(accessibilitySettings.fontSize);
+        
+        if (accessibilitySettings.highContrast) {
+            document.getElementById('highContrast').checked = true;
+            document.body.classList.add('high-contrast');
+        }
+        
+        if (accessibilitySettings.dyslexiaFont) {
+            document.getElementById('dyslexiaFont').checked = true;
+            document.body.classList.add('dyslexia-font');
+        }
+        
+        if (accessibilitySettings.reducedMotion) {
+            document.getElementById('reducedMotion').checked = true;
+            document.body.classList.add('reduced-motion');
+        }
+        
+        if (accessibilitySettings.focusHighlight) {
+            document.getElementById('focusHighlight').checked = true;
+            document.body.classList.add('focus-highlight');
+        }
+    }
+}
+
+// Close accessibility panel when clicking outside
+document.addEventListener('click', function(event) {
+    const panel = document.getElementById('accessibilityPanel');
+    const toggleBtn = document.querySelector('.accessibility-toggle');
+    
+    if (panel && toggleBtn && !panel.contains(event.target) && !toggleBtn.contains(event.target)) {
+        panel.classList.remove('open');
+    }
+});
+
+// Load accessibility settings on page load
+window.addEventListener('load', function() {
+    loadAccessibilitySettings();
 });
 
 // Start the app
