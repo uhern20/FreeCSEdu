@@ -559,9 +559,36 @@ h1 {
         justify-content: center;
     }
 
+    /* FIX: Make language dropdown fit on mobile */
     .language-dropdown {
-        right: 0;
-        left: auto;
+        position: fixed;
+        top: auto;
+        bottom: 80px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        width: calc(100% - 40px);
+        max-width: 350px;
+        max-height: 50vh;
+    }
+
+    .language-dropdown.show {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    .accessibility-panel {
+        width: calc(100% - 40px);
+        left: -100%;
+    }
+
+    .accessibility-panel.open {
+        left: 20px;
+    }
+
+    .accessibility-toggle {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
     }
 
     .topics-grid {
@@ -573,6 +600,22 @@ h1 {
     }
 }
 
+/* Additional fix for very small screens */
+@media (max-width: 480px) {
+    .language-dropdown {
+        width: calc(100% - 20px);
+        max-height: 40vh;
+        font-size: 0.9rem;
+    }
+
+    .language-option {
+        padding: 0.6rem 0.8rem;
+    }
+
+    .language-option .flag {
+        font-size: 1.1rem;
+    }
+}
 /* Accessibility Toggle Button */
 .accessibility-toggle {
     position: fixed;
