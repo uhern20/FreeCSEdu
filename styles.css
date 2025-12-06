@@ -559,21 +559,9 @@ h1 {
         justify-content: center;
     }
 
-    /* FIX: Make language dropdown fit on mobile */
     .language-dropdown {
-        position: fixed;
-        top: auto;
-        bottom: 80px;
-        left: 50%;
-        right: auto;
-        transform: translateX(-50%);
-        width: calc(100% - 40px);
-        max-width: 350px;
-        max-height: 50vh;
-    }
-
-    .language-dropdown.show {
-        transform: translateX(-50%) translateY(0);
+        right: 0;
+        left: auto;
     }
 
     .accessibility-panel {
@@ -599,7 +587,6 @@ h1 {
         font-size: 2rem;
     }
 }
-
 
 /* Accessibility Toggle Button */
 .accessibility-toggle {
