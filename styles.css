@@ -600,22 +600,7 @@ h1 {
     }
 }
 
-/* Additional fix for very small screens */
-@media (max-width: 480px) {
-    .language-dropdown {
-        width: calc(100% - 20px);
-        max-height: 40vh;
-        font-size: 0.9rem;
-    }
 
-    .language-option {
-        padding: 0.6rem 0.8rem;
-    }
-
-    .language-option .flag {
-        font-size: 1.1rem;
-    }
-}
 /* Accessibility Toggle Button */
 .accessibility-toggle {
     position: fixed;
