@@ -1,5 +1,70 @@
 [
+  {
+  "title": "C++ Environment Setup",
+  "category": "setup",
+  "description": "Learn how to set up your C++ coding environment and run your first program.",
+  "details": "Before writing C++ code, you need a working development environment. In this section, you'll choose a code editor or IDE, install a C++ compiler, and run programs on your computer.",
+  "examples": [
+    "Using an IDE helps detext any syntax errors that appear. (Which they probably will from time to time)",
+    "Could give some suggestions when naming a variable or function.",
+    "Offers tools to debug your code. Can step through your code through execution to know what exactly is going on.",
+    "Helps projects to be organized with files and folders."
+  ],
+  "videoUrl": "https://www.youtube.com/embed/vUn5akOlFXQ",
+  "resources": [
     {
+      "title": "Visual Studio Code (C++ Setup)",
+      "url": "https://code.visualstudio.com/docs/languages/cpp",
+      "icon": "💻"
+    },
+    {
+      "title": "Visual Studio C++ (Windows)",
+      "url": "https://visualstudio.microsoft.com/vs/features/cplusplus/",
+      "icon": "🧰"
+    },
+    {
+      "title": "Online C++ Compiler",
+      "url": "https://www.onlinegdb.com/online_c++_compiler",
+      "icon": "🌐"
+    }, 
+    {
+        "title": "C++ Setup and Installation Guide Video",
+        "url" : "https://www.youtube.com/watch?v=33r7GFg9s8U&pp=ygURY29tcGlsZXIgYW5kIGlkZSA%3D",
+        "icon" : "🎥"
+    }
+  ],
+  "codeExamples": [
+    {
+      "title": "Test Your Setup (Hello World)",
+      "code": "#include <iostream>\n\nint main() {\n    std::cout << \"C++ environment is set up correctly!\" << std::endl;\n    return 0;\n}"
+    },
+    {
+      "title": "Compiling from the Terminal (GCC)",
+      "code": "// Compile:\n// g++ main.cpp -o main\n\n// Run:\n// ./main"
+    },
+    {
+      "title": "Running Code in VS Code",
+      "code": "// 1. Install the C/C++ extension\n// 2. Open a .cpp file\n// 3. Click Run or press Ctrl + F5"
+    }
+  ],
+  "quiz": [
+    {
+      "question": "What tool is used to turn C++ source code into an executable program?",
+      "options": ["Editor", "Compiler", "Browser", "Server"],
+      "correct": 1
+    },
+    {
+      "question": "Which editor is lightweight and commonly used for C++ with extensions?",
+      "options": ["VS Code", "Paint", "Notepad", "Excel"],
+      "correct": 0
+    },
+    {
+      "question": "Which option allows you to run C++ code without installing anything?",
+      "options": ["Visual Studio", "VS Code", "Online compiler", "Compiler"],
+      "correct": 2
+    }
+  ]
+},{
     "title": "C++ Basics: Data Types, Fundamental Objects, and Functions",
     "category": "basics",
     "description": "Learn the fundamental building blocks of C++: data types, input/output, and basic function structure.",
