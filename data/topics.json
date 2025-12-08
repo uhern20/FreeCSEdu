@@ -128,8 +128,10 @@
     "title": "C++ Basic History",
     "category": "basics",
     "description": "The History of C++. The when, how, why, and what of C++.",
-    "details": "C++ is an Object-Oriented Programming language designed by Bjarne Stroustrup in 1985. Developed as an extension of another programming language C, hence why the '++' was added into the name of the language. C++ in the modern world is used in various fields of technology which includes things such as: game development, database systems, game graphics, and many more. Here I will provide you various resources of my own such as some minor projects to work on yourself and other external resources that are extremely valuable to you learning this language.",
+    "details": "C++ is an Object-Oriented Programming language designed by Bjarne Stroustrup in 1985. Developed as an extension of another programming language C, hence why the '++' was added into the name of the language. C++ in the modern world is used in various fields of technology which includes things such as: game development, database systems, game graphics, and many more.",
     "videoUrl": "",
+    "examples": []
+    ,
     "quiz": [
         {
             "question": "Who created the C++ programming language?",
