@@ -98,7 +98,11 @@ function showDetailPage(title) {
     }
 
     const examplesList = document.getElementById('detailExamples');
-    examplesList.innerHTML = currentTopic.examples.map(ex => `<li>${ex}</li>`).join('');
+    if (currentTopic.examples && currentTopic.examples.length > 0) {
+        examplesList.innerHTML = currentTopic.examples.map(ex => `<li>${ex}</li>`).join('');
+    } else {
+        examplesList.innerHTML = '<p style="color: var(--text-secondary);">Examples will be added soon.</p>';
+    }
 
     const resourceList = document.getElementById('resourceList');
     if (currentTopic.resources && currentTopic.resources.length > 0) {
@@ -110,6 +114,25 @@ function showDetailPage(title) {
         `).join('');
     } else {
         resourceList.innerHTML = '<p style="color: var(--text-secondary);">No external resources available yet.</p>';
+    }
+
+    // Render code exercises
+    const codeExercisesContainer = document.getElementById('codeExercisesContainer');
+    if (currentTopic.codeExercises && currentTopic.codeExercises.length > 0) {
+        document.getElementById('codeExercisesSection').style.display = 'block';
+        codeExercisesContainer.innerHTML = currentTopic.codeExercises.map(exercise => `
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <h3>${exercise.title}</h3>
+                    <span class="difficulty-badge ${exercise.difficulty.toLowerCase()}">${exercise.difficulty}</span>
+                </div>
+                <button class="download-btn" onclick="downloadFile('exercises/${exercise.filename}', '${exercise.filename}')">
+                    📥 Download ${exercise.filename}
+                </button>
+            </div>
+        `).join('');
+    } else {
+        document.getElementById('codeExercisesSection').style.display = 'none';
     }
 
     renderQuiz();
@@ -125,6 +148,15 @@ function showHomePage() {
     document.getElementById('homePage').style.display = 'block';
     document.getElementById('detailPage').classList.remove('active');
     window.scrollTo(0, 0);
+}
+
+function downloadFile(filepath, filename) {
+    const link = document.createElement('a');
+    link.href = filepath;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 }
 
 function renderQuiz() {
@@ -221,38 +253,32 @@ function changeLanguage(langCode, displayText) {
     document.getElementById('currentLanguage').textContent = displayText;
     toggleLanguageDropdown();
     
-    // Wait for Google Translate to load
-    const maxAttempts = 10;
-    let attempts = 0;
-    
-    const tryTranslate = setInterval(() => {
-        const select = document.querySelector('.goog-te-combo');
-        const iframe = document.querySelector('.goog-te-menu-frame');
+    // If switching to English, just reload the page
+    if (langCode === 'en') {
+        // Store current page state
+        const currentTopic = window.location.hash;
         
-        if (select || attempts >= maxAttempts) {
-            clearInterval(tryTranslate);
-            
-            if (select) {
-                // For English, need to actually click the restore button
-                if (langCode === 'en') {
-                    // Find and click the restore button
-                    const restoreButton = document.querySelector('.goog-te-menu-value span:first-child');
-                    if (restoreButton && document.body.classList.contains('translated-ltr')) {
-                        restoreButton.click();
-                    } else {
-                        // Already in English or not translated yet
-                        select.value = '';
-                        select.dispatchEvent(new Event('change'));
-                    }
-                } else {
-                    // Change to selected language
-                    select.value = langCode;
-                    select.dispatchEvent(new Event('change'));
-                }
-            }
+        // Clear any Google Translate cookies
+        document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + window.location.hostname;
+        
+        // Reload page
+        if (currentTopic) {
+            window.location.href = window.location.pathname + currentTopic;
+        } else {
+            window.location.href = window.location.pathname;
         }
-        attempts++;
-    }, 200);
+        return;
+    }
+    
+    // For other languages, use Google Translate
+    setTimeout(() => {
+        const select = document.querySelector('.goog-te-combo');
+        if (select) {
+            select.value = langCode;
+            select.dispatchEvent(new Event('change'));
+        }
+    }, 500);
 }
 
 // Close dropdown when clicking outside
@@ -304,13 +330,9 @@ function toggleAccessibilityPanel() {
 }
 
 function changeFontSize(size) {
-    // Remove all font size classes - ADD xxlarge here
     document.body.classList.remove('font-small', 'font-medium', 'font-large', 'font-xlarge', 'font-xxlarge');
-    
-    // Add selected size
     document.body.classList.add(`font-${size}`);
     
-    // Update active button
     document.querySelectorAll('.font-btn').forEach(btn => {
         btn.classList.remove('active');
         if (btn.dataset.size === size) {
@@ -359,7 +381,6 @@ function resetAccessibility() {
         focusHighlight: false
     };
     
-    // ADD xxlarge here too
     document.body.classList.remove('font-small', 'font-large', 'font-xlarge', 'font-xxlarge', 'high-contrast', 'dyslexia-font', 'reduced-motion', 'focus-highlight');
     document.body.classList.add('font-medium');
     
@@ -387,7 +408,6 @@ function loadAccessibilitySettings() {
     if (saved) {
         accessibilitySettings = JSON.parse(saved);
         
-        // Apply saved settings
         changeFontSize(accessibilitySettings.fontSize);
         
         if (accessibilitySettings.highContrast) {

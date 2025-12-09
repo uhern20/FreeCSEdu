@@ -74,8 +74,7 @@
         "Using cout to display output",
         "Using cin to get user input",
         "Variable declaration and initialization",
-        "Basic function structure and syntax",
-        "Simple arithmetic operations"
+        "Basic function structure and syntax"    
     ],
     "videoUrl": "",
     "resources": [
@@ -84,22 +83,20 @@
         { "title": "C++ Variables and Types", "url": "https://cplusplus.com/doc/tutorial/variables/", "icon": "🎓" },
         { "title": "The Cherno - Variables in C++", "url": "https://www.youtube.com/watch?v=zB9RI8_wExo", "icon": "🎥" }
     ],
-    "codeExamples": [
+    "codeExercises": [
         {
-            "title": "Hello World & Basic Output",
-            "code": "#include <iostream>\n\nint main() {\n    std::cout << \"Hello, World!\" << std::endl;\n    std::cout << \"Welcome to C++!\" << std::endl;\n    return 0;\n}"
+            "title": "Cin and Cout Practice",
+            "difficulty": "Beginner",
+            "filename": "cin_and_cout_practice.cpp"
         },
-        {
-            "title": "Basic Data Types",
-            "code": "#include <iostream>\n\nint main() {\n    int age = 25;              // whole numbers\n    float price = 19.99;       // decimal numbers\n    double pi = 3.14159;       // more precise decimals\n    char grade = 'A';          // single character\n    bool isPassed = true;      // true or false\n    \n    std::cout << \"Age: \" << age << std::endl;\n    std::cout << \"Price: $\" << price << std::endl;\n    std::cout << \"Grade: \" << grade << std::endl;\n    return 0;\n}"
-        },
-        {
-            "title": "Using cin for Input",
-            "code": "#include <iostream>\n\nint main() {\n    int age;\n    std::string name;\n    \n    std::cout << \"Enter your name: \";\n    std::cin >> name;\n    \n    std::cout << \"Enter your age: \";\n    std::cin >> age;\n    \n    std::cout << \"Hello \" << name << \", you are \" << age << \" years old!\" << std::endl;\n    return 0;\n}"
-        },
-        {
-            "title": "Basic Function Structure",
-            "code": "#include <iostream>\n\n// A simple function that adds two numbers\nint add(int a, int b) {\n    return a + b;\n}\n\n// A function that prints a greeting\nvoid greet() {\n    std::cout << \"Hello from a function!\" << std::endl;\n}\n\nint main() {\n    greet();  // calling the greet function\n    \n    int sum = add(5, 3);  // calling the add function\n    std::cout << \"5 + 3 = \" << sum << std::endl;\n    \n    return 0;\n}"
+         {
+            "title": "Functions Practice #1",
+            "difficulty": "Beginner",
+            "filename": "functions_practice1.cpp"
+        },{
+            "title": "Functions Practice #2",
+            "difficulty": "Beginner",
+            "filename": "functions_practice2.cpp"
         }
     ],
     "quiz": [
