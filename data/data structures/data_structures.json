@@ -1,0 +1,26 @@
+[
+    {
+        "title": "Binary Search Tree",
+        "category": "data structures",
+        "description": "A tree data structure where each node has at most two children, with left child smaller and right child larger.",
+        "details": "BSTs provide efficient searching, insertion, and deletion operations. In a balanced BST, operations have O(log n) time complexity, making them much faster than linear search for large datasets.",
+        "examples": [
+            "Search operations in O(log n)",
+            "In-order traversal gives sorted output",
+            "Used in database indexing",
+            "Self-balancing variants: AVL, Red-Black trees"
+        ],
+        "videoUrl": "",
+        "resources": [
+            { "title": "BST Visualization", "url": "https://www.cs.usfca.edu/~galles/visualization/BST.html", "icon": "🌳" },
+            { "title": "GeeksforGeeks BST", "url": "https://www.geeksforgeeks.org/binary-search-tree-data-structure/", "icon": "📚" }
+        ],
+        "quiz": [
+            {
+                "question": "In a Binary Search Tree, where are values smaller than the root stored?",
+                "options": ["Right subtree", "Left subtree", "Parent node", "Leaf nodes only"],
+                "correct": 1
+            }
+        ]
+    }
+]

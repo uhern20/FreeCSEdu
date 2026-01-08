@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Big O Notation",
+        "category": "algorithms",
+        "description": "A mathematical notation used to describe the performance or complexity of an algorithm.",
+        "details": "Big O notation specifically describes the worst-case scenario and can be used to describe the execution time required or the space used by an algorithm. It helps developers understand how an algorithm's performance scales with input size.",
+        "examples": [
+            "O(1) - Constant time",
+            "O(n) - Linear time",
+            "O(n²) - Quadratic time",
+            "O(log n) - Logarithmic time"
+        ],
+        "videoUrl": "",
+        "resources": [
+            { "title": "Big O Cheat Sheet", "url": "https://www.bigocheatsheet.com/", "icon": "📊" },
+            { "title": "Khan Academy - Algorithms", "url": "https://www.khanacademy.org/computing/computer-science/algorithms", "icon": "🎓" },
+            { "title": "Visualgo - Algorithm Visualizations", "url": "https://visualgo.net/en", "icon": "👁️" }
+        ],
+        "quiz": [
+            {
+                "question": "What is the time complexity of accessing an element in an array by index?",
+                "options": ["O(1)", "O(n)", "O(log n)", "O(n²)"],
+                "correct": 0
+            },
+            {
+                "question": "Which time complexity represents a binary search algorithm?",
+                "options": ["O(n)", "O(log n)", "O(n log n)", "O(n²)"],
+                "correct": 1
+            }
+        ]
+    }
+]

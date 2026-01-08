@@ -1,0 +1,26 @@
+[
+    {
+        "title": "Recursion",
+        "category": "programming",
+        "description": "A programming technique where a function calls itself to solve a problem.",
+        "details": "Recursion breaks down complex problems into simpler, similar subproblems. Every recursive function needs a base case to prevent infinite recursion and a recursive case that moves toward the base case.",
+        "examples": [
+            "Factorial calculation",
+            "Fibonacci sequence",
+            "Tree traversal",
+            "Divide and conquer algorithms"
+        ],
+        "videoUrl": "",
+        "resources": [
+            { "title": "Recursion Explained", "url": "https://www.geeksforgeeks.org/recursion/", "icon": "📘" },
+            { "title": "Visualizing Recursion", "url": "https://recursion.vercel.app/", "icon": "👁️" }
+        ],
+        "quiz": [
+            {
+                "question": "What is the essential component every recursive function must have?",
+                "options": ["A loop", "A base case", "Multiple parameters", "Global variables"],
+                "correct": 1
+            }
+        ]
+    }
+]

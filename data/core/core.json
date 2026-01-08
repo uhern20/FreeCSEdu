@@ -1,0 +1,478 @@
+[
+    {
+        "title": "C++ Basic History",
+        "category": "core",
+        "description": "The History of C++. The when, how, why, and what of C++.",
+        "details": "C++ is an Object-Oriented Programming language designed by Bjarne Stroustrup in 1985. Developed as an extension of another programming language C, hence why the '++' was added into the name of the language. C++ in the modern world is used in various fields of technology which includes things such as: game development, database systems, game graphics, and many more.",
+        "videoUrl": "https://www.youtube.com/embed/nw23GM79HcY?start=390",
+        "examples": [],
+        "resources": [],
+        "quiz": [
+            {
+                "question": "Who created the C++ programming language?",
+                "options": ["Dennis Ritchie", "Bjarne Stroustrup", "Guido van Rossum", "James Gosling"],
+                "correct": 1
+            },
+            {
+                "question": "What does the '++' in C++ represent?",
+                "options": ["Addition operator", "Increment operator", "Multiplication", "Concatenation"],
+                "correct": 1
+            }
+        ]
+    },
+    {
+        "title": "C++ Basics: Data Types, Fundamental Objects, and Functions",
+        "category": "core",
+        "description": "Learn the fundamental building blocks of C++: data types, input/output, and basic function structure.",
+        "details": "This section introduces you to the essential components of C++ programming. You'll learn about basic data types like int, float, double, char, and bool that store different kinds of information. We'll cover how to use cin to get user input and cout to display output. You'll also learn the basic structure of functions - how to write them, what they look like, and why they're useful. These are the building blocks you need to start writing C++ programs.",
+        "examples": [
+            "Basic data types: int, float, double, char, bool",
+            "Using cout to display output",
+            "Using cin to get user input",
+            "Variable declaration and initialization",
+            "Basic function structure and syntax"    
+        ],
+        "videoUrl": "",
+        "resources": [
+            { "title": "C++ Data Types Reference", "url": "https://en.cppreference.com/w/cpp/language/types", "icon": "📚" },
+            { "title": "Functions in C++", "url": "https://www.learncpp.com/cpp-tutorial/introduction-to-functions/", "icon": "📖" },
+            { "title": "C++ Variables and Types", "url": "https://cplusplus.com/doc/tutorial/variables/", "icon": "🎓" },
+            { "title": "The Cherno - Variables in C++", "url": "https://www.youtube.com/watch?v=zB9RI8_wExo", "icon": "🎥" }
+        ],
+        "codeExercises": [
+            {
+                "title": "Cin and Cout Practice",
+                "difficulty": "Beginner",
+                "filename": "cin_and_cout_practice.cpp"
+            },
+            {
+                "title": "Functions Practice #1",
+                "difficulty": "Beginner",
+                "filename": "functions_practice1.cpp"
+            },
+            {
+                "title": "Functions Practice #2",
+                "difficulty": "Beginner",
+                "filename": "functions_practice2.cpp"
+            }
+        ],
+        "quiz": [
+            {
+                "question": "Which data type would you use to store a whole number like 42?",
+                "options": ["float", "int", "char", "bool"],
+                "correct": 1
+            },
+            {
+                "question": "What does 'cout' do in C++?",
+                "options": ["Gets input from user", "Outputs/displays text", "Declares a variable", "Ends the program"],
+                "correct": 1
+            },
+            {
+                "question": "What does 'cin' do in C++?",
+                "options": ["Outputs text", "Gets input from the user", "Starts the program", "Creates a function"],
+                "correct": 1
+            },
+            {
+                "question": "What does 'int' stand for in C++?",
+                "options": ["Internet", "Integer (whole number)", "Internal", "Interval"],
+                "correct": 1
+            }
+        ]
+    },
+    {
+        "title": "C++ Basics: Operators and Control Flow",
+        "category": "core",
+        "description": "Learn the basics of operators and control flow in C++.",
+        "details": "This section covers the fundamental operators and control flow constructs in C++. You'll learn how to use arithmetic, relational, and logical operators, as well as how to implement conditional statements (if-else) and loops (for, while, do-while).",
+        "videoUrl": "https://www.youtube.com/embed/02PdHb2xfKE?t=1s",
+        "examples": [
+            "Using arithmetic operators (+, -, *, /, %) to calculate values",
+            "Comparing values using relational operators (==, !=, <, >, <=, >=)",
+            "Using logical operators (&&, ||, !) to combine conditions",
+            "Making decisions using if, else if, and else statements",
+            "Using loops (for, while) to repeat actions"
+        ],
+        "resources": [
+            {
+                "title": "C++ Operators Reference",
+                "url": "https://en.cppreference.com/w/cpp/language/operators",
+                "icon": "📚"
+            },
+            {
+                "title": "Control Flow in C++",
+                "url": "https://www.learncpp.com/cpp-tutorial/control-flow/",
+                "icon": "📖"
+            },
+            {
+                "title": "The Cherno - Control Flow",
+                "url": "https://www.youtube.com/watch?v=ZB9RI8_wExo",
+                "icon": "🎥"
+            }
+        ],
+        "codeExercises": [
+            {
+                "title": "Arithmetic Practice",
+                "difficulty": "Beginner",
+                "filename": "arithmetic_practice.cpp"
+            },
+            {
+                "title": "If and Else Practice",
+                "difficulty": "Beginner",
+                "filename": "if_else_practice.cpp"
+            },
+            {
+                "title": "Loops Practice",
+                "difficulty": "Beginner",
+                "filename": "loops_practice.cpp"
+            }
+        ],
+        "quiz": [
+            {
+                "question": "Which operator is used to check if two values are equal?",
+                "options": ["=", "==", "!=", "<"],
+                "correct": 1
+            },
+            {
+                "question": "What will be the output of: int x = 10; int y = 3; cout << x % y;",
+                "options": ["3", "1", "0", "10"],
+                "correct": 1
+            },
+            {
+                "question": "Which statement is used to execute code only when a condition is true?",
+                "options": ["for", "while", "if", "break"],
+                "correct": 2
+            },
+            {
+                "question": "How many times will this loop run?\nfor(int i = 0; i < 5; i++)",
+                "options": ["4", "5", "6", "Infinite"],
+                "correct": 1
+            },
+            {
+                "question": "Which logical operator means AND?",
+                "options": ["||", "&&", "!", "&"],
+                "correct": 1
+            }
+        ]
+    },
+    {
+        "title": "C++ References & Parameter Passing",
+        "category": "core",
+        "description": "Learn how data is passed to functions in C++ and how references allow functions to modify variables.",
+        "details": "This lesson introduces references and explains how C++ passes data to functions. You'll learn the difference between pass-by-value and pass-by-reference, how references work, and when to use them. Understanding this is essential before learning pointers and data structures.",
+        "examples": [
+            "Passing parameters by value (copies the data)",
+            "Passing parameters by reference (modifies the original variable)",
+            "Using '&' in function parameters",
+            "When to use pass-by-value vs pass-by-reference",
+            "Avoiding unnecessary copies"
+        ],
+        "videoUrl": "",
+        "resources": [
+            {
+                "title": "C++ References Explained",
+                "url": "https://www.learncpp.com/cpp-tutorial/references/",
+                "icon": "📖"
+            },
+            {
+                "title": "C++ Parameter Passing",
+                "url": "https://www.geeksforgeeks.org/cpp-functions-pass-by-reference/",
+                "icon": "📚"
+            },
+            {
+                "title": "The Cherno - References in C++",
+                "url": "https://www.youtube.com/watch?v=IzoFn3dfs4k",
+                "icon": "🎥"
+            }
+        ],
+        "codeExercises": [
+            {
+                "title": "Pass by Value Practice",
+                "difficulty": "Beginner",
+                "filename": "pass_by_value.cpp"
+            },
+            {
+                "title": "Pass by Reference Practice",
+                "difficulty": "Beginner",
+                "filename": "pass_by_reference.cpp"
+            },
+            {
+                "title": "Swap Two Numbers",
+                "difficulty": "Beginner",
+                "filename": "swap_using_references.cpp"
+            }
+        ],
+        "quiz": [
+            {
+                "question": "What happens when a variable is passed by value to a function?",
+                "options": [
+                    "The original variable is modified",
+                    "A copy of the variable is made",
+                    "The variable becomes a reference",
+                    "The variable is deleted"
+                ],
+                "correct": 1
+            },
+            {
+                "question": "Which symbol is used to declare a reference in C++?",
+                "options": ["*", "&", "&&", "#"],
+                "correct": 1
+            },
+            {
+                "question": "Why is pass-by-reference often preferred for large objects?",
+                "options": [
+                    "It prevents compilation errors",
+                    "It allows recursion",
+                    "It avoids unnecessary copying",
+                    "It makes code slower"
+                ],
+                "correct": 2
+            },
+            {
+                "question": "Which function parameter allows modifying the original variable?",
+                "options": [
+                    "int x",
+                    "int* x",
+                    "int& x",
+                    "const int x"
+                ],
+                "correct": 2
+            }
+        ]
+    },
+    {
+        "title": "C++ Pointers & Memory",
+        "category": "core",
+        "description": "Learn how pointers work in C++ and how they are used to access and modify memory directly.",
+        "details": "This lesson introduces pointers, a core C++ concept that allows programs to work directly with memory. You'll learn how to declare pointers, store memory addresses, dereference pointers, and use pointers with functions and dynamic memory. Understanding pointers is essential for working with data structures like linked lists, trees, and graphs.",
+        "examples": [
+            "Declaring pointer variables",
+            "Using the address-of operator (&)",
+            "Dereferencing pointers (*)",
+            "Modifying variables using pointers",
+            "Passing pointers to functions",
+            "Using nullptr to avoid invalid pointers"
+        ],
+        "videoUrl": "",
+        "resources": [
+            {
+                "title": "C++ Pointers Explained",
+                "url": "https://www.learncpp.com/cpp-tutorial/pointers/",
+                "icon": "📖"
+            },
+            {
+                "title": "Pointers in C++ (cppreference)",
+                "url": "https://en.cppreference.com/w/cpp/language/pointer",
+                "icon": "📚"
+            },
+            {
+                "title": "The Cherno - Pointers in C++",
+                "url": "https://www.youtube.com/watch?v=DTxHyVn0ODg",
+                "icon": "🎥"
+            }
+        ],
+        "codeExercises": [
+            {
+                "title": "Pointer Basics",
+                "difficulty": "Beginner",
+                "filename": "pointer_basics.cpp"
+            },
+            {
+                "title": "Pointers in Functions",
+                "difficulty": "Beginner",
+                "filename": "pointer_parameters.cpp"
+            },
+            {
+                "title": "Dynamic Memory Allocation",
+                "difficulty": "Intermediate",
+                "filename": "dynamic_memory.cpp"
+            },
+            {
+                "title": "Arrays and Pointer Arithmetic",
+                "difficulty": "Intermediate",
+                "filename": "array_pointers.cpp"
+            }
+        ],
+        "quiz": [
+            {
+                "question": "What does a pointer store?",
+                "options": [
+                    "A value",
+                    "A memory address",
+                    "A function",
+                    "A data type"
+                ],
+                "correct": 1
+            },
+            {
+                "question": "Which operator is used to access the value a pointer points to?",
+                "options": ["&", "*", "->", "."],
+                "correct": 1
+            },
+            {
+                "question": "What is the purpose of nullptr?",
+                "options": [
+                    "To allocate memory",
+                    "To delete memory",
+                    "To represent a pointer that points to nothing",
+                    "To create a reference"
+                ],
+                "correct": 2
+            },
+            {
+                "question": "What happens if you forget to delete dynamically allocated memory?",
+                "options": [
+                    "Compilation error",
+                    "Memory leak",
+                    "Infinite loop",
+                    "Program speeds up"
+                ],
+                "correct": 1
+            }
+        ]
+    },
+    {
+        "title": "C++ Dynamic Memory (new/delete)",
+        "category": "core",
+        "description": "Learn how to allocate and deallocate memory dynamically in C++ using new and delete.",
+        "details": "This lesson covers dynamic memory management in C++. You'll learn the difference between stack and heap memory, how to allocate memory with 'new', deallocate with 'delete', and common pitfalls like memory leaks and dangling pointers.",
+        "examples": [
+            "int* arr = new int[5]; // allocate array on heap",
+            "delete[] arr; // deallocate array",
+            "Heap vs stack memory",
+            "Dangling pointers after deletion",
+            "Avoiding memory leaks"
+        ],
+        "videoUrl": "",
+        "resources": [
+            {
+                "title": "Dynamic Memory in C++",
+                "url": "https://www.learncpp.com/cpp-tutorial/dynamic-memory/",
+                "icon": "📖"
+            },
+            {
+                "title": "Memory Management in C++ (cppreference)",
+                "url": "https://en.cppreference.com/w/cpp/memory",
+                "icon": "📚"
+            },
+            {
+                "title": "The Cherno - Dynamic Memory",
+                "url": "https://www.youtube.com/watch?v=UobY3pgDzmI",
+                "icon": "🎥"
+            }
+        ],
+        "codeExercises": [
+            {
+                "title": "Allocate and Delete Single Variables",
+                "difficulty": "Intermediate",
+                "filename": "dynamic_single.cpp"
+            },
+            {
+                "title": "Dynamic Array Allocation",
+                "difficulty": "Intermediate",
+                "filename": "dynamic_array.cpp"
+            },
+            {
+                "title": "Avoid Memory Leaks",
+                "difficulty": "Intermediate",
+                "filename": "memory_leak_practice.cpp"
+            }
+        ],
+        "quiz": [
+            {
+                "question": "Which operator is used to allocate dynamic memory in C++?",
+                "options": ["malloc", "new", "allocate", "pointer"],
+                "correct": 1
+            },
+            {
+                "question": "Which operator is used to deallocate dynamic arrays?",
+                "options": ["delete", "delete[]", "free", "remove"],
+                "correct": 1
+            },
+            {
+                "question": "What is a dangling pointer?",
+                "options": [
+                    "A pointer that points to valid memory",
+                    "A pointer that has been deleted but still used",
+                    "A pointer to an array",
+                    "A null pointer"
+                ],
+                "correct": 1
+            },
+            {
+                "question": "What happens if you forget to delete dynamically allocated memory?",
+                "options": ["Compilation error", "Memory leak", "Infinite loop", "Program speeds up"],
+                "correct": 1
+            }
+        ]
+    },
+    {
+        "title": "C++ Structs & Classes",
+        "category": "core",
+        "description": "Learn how to define and use structs and classes in C++ to organize data and functionality.",
+        "details": "This lesson introduces structs and classes in C++. You'll learn the difference between the two, how to define constructors and destructors, and how to access members using '.' for objects and '->' for pointers. Pointers from previous lessons will be crucial here.",
+        "examples": [
+            "struct vs class",
+            "Defining constructors and destructors",
+            "Accessing members using '.' and '->'",
+            "Creating objects and pointers to objects",
+            "Why classes make pointers more meaningful"
+        ],
+        "videoUrl": "",
+        "resources": [
+            {
+                "title": "Structs and Classes in C++",
+                "url": "https://www.learncpp.com/cpp-tutorial/structs-and-classes/",
+                "icon": "📖"
+            },
+            {
+                "title": "Classes Reference (cppreference)",
+                "url": "https://en.cppreference.com/w/cpp/language/class",
+                "icon": "📚"
+            },
+            {
+                "title": "The Cherno - Classes in C++",
+                "url": "https://www.youtube.com/watch?v=1v_4dL8l8p8",
+                "icon": "🎥"
+            }
+        ],
+        "codeExercises": [
+            {
+                "title": "Struct Definition Practice",
+                "difficulty": "Intermediate",
+                "filename": "struct_practice.cpp"
+            },
+            {
+                "title": "Class Constructor & Destructor Practice",
+                "difficulty": "Intermediate",
+                "filename": "class_constructor_destructor.cpp"
+            },
+            {
+                "title": "Object Pointers and Member Access",
+                "difficulty": "Intermediate",
+                "filename": "object_pointer_practice.cpp"
+            }
+        ],
+        "quiz": [
+            {
+                "question": "What is the default access specifier for members of a struct?",
+                "options": ["private", "protected", "public", "none"],
+                "correct": 2
+            },
+            {
+                "question": "What operator is used to access members of a class via a pointer?",
+                "options": [".", "->", "*", "&"],
+                "correct": 1
+            },
+            {
+                "question": "Which special function is called automatically when an object is destroyed?",
+                "options": ["Constructor", "Destructor", "Member Function", "Copy Constructor"],
+                "correct": 1
+            },
+            {
+                "question": "Which keyword is used to define a class in C++?",
+                "options": ["struct", "class", "object", "define"],
+                "correct": 1
+            }
+        ]
+    }
+]

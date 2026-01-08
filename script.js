@@ -7,8 +7,21 @@ let currentLanguage = 'en';
 // Load topics from JSON file
 async function loadTopics() {
     try {
-        const response = await fetch('data/topics.json');
-        topics = await response.json();
+        const categories = ['algorithms', 'core', 'data-structures', 'programming', 'setup'];
+        const allTopics = [];
+        
+        // Load each category file
+        for (const category of categories) {
+            try {
+                const response = await fetch(`data/${category}/${category}.json`);
+                const categoryTopics = await response.json();
+                allTopics.push(...categoryTopics);
+            } catch (error) {
+                console.warn(`Could not load ${category}.json:`, error);
+            }
+        }
+        
+        topics = allTopics;
         init();
     } catch (error) {
         console.error('Error loading topics:', error);
