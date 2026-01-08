@@ -4,6 +4,10 @@ let currentSearch = '';
 let currentTopic = null;
 let currentLanguage = 'en';
 
+
+function openFeedbackForm() {
+    window.open('https://docs.google.com/forms/d/e/1FAIpQLScKU5S8Qd1oNRANrFGIPTO35b9fa24aTY5wWOBkTLRdsG1DPA/viewform?usp=dialog', '_blank');
+}
 // Load topics from JSON file
 async function loadTopics() {
     try {

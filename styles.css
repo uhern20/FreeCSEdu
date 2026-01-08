@@ -976,3 +976,23 @@ body.font-xxlarge .quiz-option {
         font-size: 2rem;
     }
 }
+
+.feedback-btn {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+.feedback-btn:hover {
+    background: var(--accent);
+    color: white;
+    transform: translateY(-2px);
+}

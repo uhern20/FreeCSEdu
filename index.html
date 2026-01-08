@@ -8,68 +8,72 @@
 </head>
 <body>
     <header>
-        <div class="header-content">
-            <h1 onclick="showHomePage()">CSEdu For Free</h1>
-            <div class="header-controls">
-                <button class="theme-toggle" onclick="toggleTheme()">
-                    <span id="themeIcon">🌙</span>
-                    <span id="themeText">Dark Mode</span>
+    <div class="header-content">
+        <h1 onclick="showHomePage()">CSEdu For Free</h1>
+        <div class="header-controls">
+            <button class="feedback-btn" onclick="openFeedbackForm()">
+                <span>💬</span>
+                <span>Feedback</span>
+            </button>
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <span id="themeIcon">🌙</span>
+                <span id="themeText">Dark Mode</span>
+            </button>
+            <div class="language-selector">
+                <button class="language-btn" onclick="toggleLanguageDropdown()">
+                    <span id="currentLanguage">🌐 EN</span>
+                    <span class="arrow">▼</span>
                 </button>
-                <div class="language-selector">
-                    <button class="language-btn" onclick="toggleLanguageDropdown()">
-                        <span id="currentLanguage">🌐 EN</span>
-                        <span class="arrow">▼</span>
-                    </button>
-                    <div class="language-dropdown" id="languageDropdown">
-                        <div class="language-option" onclick="changeLanguage('en', '🌐 EN')">
-                            <span class="flag">🇺🇸</span>
-                            <span>English</span>
-                        </div>
-                        <div class="language-option" onclick="changeLanguage('es', '🌐 ES')">
-                            <span class="flag">🇪🇸</span>
-                            <span>Español</span>
-                        </div>
-                        <div class="language-option" onclick="changeLanguage('fr', '🌐 FR')">
-                            <span class="flag">🇫🇷</span>
-                            <span>Français</span>
-                        </div>
-                        <div class="language-option" onclick="changeLanguage('de', '🌐 DE')">
-                            <span class="flag">🇩🇪</span>
-                            <span>Deutsch</span>
-                        </div>
-                        <div class="language-option" onclick="changeLanguage('zh-CN', '🌐 ZH')">
-                            <span class="flag">🇨🇳</span>
-                            <span>中文</span>
-                        </div>
-                        <div class="language-option" onclick="changeLanguage('ja', '🌐 JA')">
-                            <span class="flag">🇯🇵</span>
-                            <span>日本語</span>
-                        </div>
-                        <div class="language-option" onclick="changeLanguage('ko', '🌐 KO')">
-                            <span class="flag">🇰🇷</span>
-                            <span>한국어</span>
-                        </div>
-                        <div class="language-option" onclick="changeLanguage('ar', '🌐 AR')">
-                            <span class="flag">🇸🇦</span>
-                            <span>العربية</span>
-                        </div>
-                        <div class="language-option" onclick="changeLanguage('hi', '🌐 HI')">
-                            <span class="flag">🇮🇳</span>
-                            <span>हिन्दी</span>
-                        </div>
-                        <div class="language-option" onclick="changeLanguage('pt', '🌐 PT')">
-                            <span class="flag">🇧🇷</span>
-                            <span>Português</span>
-                        </div>
-                        <div class="language-option" onclick="changeLanguage('ru', '🌐 RU')">
-                            <span class="flag">🇷🇺</span>
-                            <span>Русский</span>
-                        </div>
+                <div class="language-dropdown" id="languageDropdown">
+                    <div class="language-option" onclick="changeLanguage('en', '🌐 EN')">
+                        <span class="flag">🇺🇸</span>
+                        <span>English</span>
+                    </div>
+                    <div class="language-option" onclick="changeLanguage('es', '🌐 ES')">
+                        <span class="flag">🇪🇸</span>
+                        <span>Español</span>
+                    </div>
+                    <div class="language-option" onclick="changeLanguage('fr', '🌐 FR')">
+                        <span class="flag">🇫🇷</span>
+                        <span>Français</span>
+                    </div>
+                    <div class="language-option" onclick="changeLanguage('de', '🌐 DE')">
+                        <span class="flag">🇩🇪</span>
+                        <span>Deutsch</span>
+                    </div>
+                    <div class="language-option" onclick="changeLanguage('zh-CN', '🌐 ZH')">
+                        <span class="flag">🇨🇳</span>
+                        <span>中文</span>
+                    </div>
+                    <div class="language-option" onclick="changeLanguage('ja', '🌐 JA')">
+                        <span class="flag">🇯🇵</span>
+                        <span>日本語</span>
+                    </div>
+                    <div class="language-option" onclick="changeLanguage('ko', '🌐 KO')">
+                        <span class="flag">🇰🇷</span>
+                        <span>한국어</span>
+                    </div>
+                    <div class="language-option" onclick="changeLanguage('ar', '🌐 AR')">
+                        <span class="flag">🇸🇦</span>
+                        <span>العربية</span>
+                    </div>
+                    <div class="language-option" onclick="changeLanguage('hi', '🌐 HI')">
+                        <span class="flag">🇮🇳</span>
+                        <span>हिन्दी</span>
+                    </div>
+                    <div class="language-option" onclick="changeLanguage('pt', '🌐 PT')">
+                        <span class="flag">🇧🇷</span>
+                        <span>Português</span>
+                    </div>
+                    <div class="language-option" onclick="changeLanguage('ru', '🌐 RU')">
+                        <span class="flag">🇷🇺</span>
+                        <span>Русский</span>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
+    </div>
+</header>
     <!-- Accessibility Panel -->
 <button class="accessibility-toggle" onclick="toggleAccessibilityPanel()" aria-label="Accessibility Options">
     ⚙️
